@@ -6,11 +6,12 @@ import requests
 import queue
 from datetime import datetime
 
-OLLAMA_URL = "http://100.79.39.61:11434/api/generate"
-OLLAMA_MODEL = "mistral"
+OLLAMA_URL = "http://100.79.39.61:11434/api/generate" # URL of the Ollama model API endpoint
+OLLAMA_MODEL = "mistral" # Model name to use for analysis
 
 log_queue = queue.Queue()
 
+# Continuously read new lines appended to a file (like tail -f)
 def tail_f(filepath):
     with open(filepath, 'r') as f:
         f.seek(0, 2)
@@ -20,7 +21,8 @@ def tail_f(filepath):
                 time.sleep(0.1)
                 continue
             yield line
-
+            
+# Parse an Apache access log line
 def parse_apache_access(line):
     m = re.search(r'\[([0-9]{2}/[A-Za-z]{3}/[0-9]{4}:[0-9]{2}:[0-9]{2}:[0-9]{2} [+\-0-9]+)\] "(\S+) (\S+) \S+" (\d{3}) (\d+|-) "([^"]*)" "([^"]*)"', line)
     if not m:
@@ -38,6 +40,7 @@ def parse_apache_access(line):
         "user_agent": user_agent
     }
 
+# Parse a MariaDB log line
 def parse_mariadb(line):
     try:
         if "mariadb" not in line:
@@ -63,6 +66,7 @@ def parse_mariadb(line):
     except Exception:
         return None
 
+# Continuously process logs from queue, analyze with model, and print results
 def analyze_logs_from_queue():
     prompt_template = (
         "You are a cybersecurity log analysis expert.\n"
@@ -113,6 +117,7 @@ def analyze_logs_from_queue():
         finally:
             log_queue.task_done()
 
+# Continuously read logs from a file, parse them, and add to queue
 def process_log(filepath, parser_func):
     print(f"[DEBUG] Start monitoring {filepath}")
     for line in tail_f(filepath):
@@ -128,10 +133,12 @@ if __name__ == "__main__":
         "/var/log/remote/vuln/mariadb.log": parse_mariadb,
     }
 
+    # Start thread for analyzing logs
     thread_analyze = threading.Thread(target=analyze_logs_from_queue, daemon=True)
     thread_analyze.start()
 
     threads = []
+    # Start threads for each log file
     for file, parser in files_and_parsers.items():
         t = threading.Thread(target=process_log, args=(file, parser), daemon=True)
         t.start()
