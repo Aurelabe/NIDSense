@@ -12,8 +12,8 @@ L'architecture distribue les rôles sur trois machines distinctes, interconnect�
 
 ```
 +------------------------+            +-----------------------------+             +----------------------------------------+
-|   🛡️ Serveur Rocky     |            |   🔎 Machine Ubuntu        |             |      🤖 Windows                        |
-|      (Cible)           |            | (Traitement des données)    |             |    (Mistral + Ollama)                  |
+|   🛡️ Serveur Rocky     |            |   🔎 Machine Ubuntu        |             |               🤖 Windows               |
+|      (Cible)           |            | (Traitement des données)    |             |           (Mistral + Ollama)           |
 +------------------------+            +-----------------------------+             +----------------------------------------+
 | Services exposés :     |            | Services :                  |             | Services :                             |
 |  - Apache (port 80)    |            |  - rsyslog (UDP 514)        |             |  - Ollama (Mistral)                    |
