@@ -9,7 +9,7 @@ from datetime import datetime
 OLLAMA_URL = "http://100.79.39.61:11434/api/generate" # URL of the Ollama model API endpoint
 OLLAMA_MODEL = "mistral" # Model name to use for analysis
 
-log_queue = queue.Queue()
+log_queue = queue.Queue() # Thread-safe queue to hold parsed logs before analysis    
 
 # Continuously read new lines appended to a file (like tail -f)
 def tail_f(filepath):
