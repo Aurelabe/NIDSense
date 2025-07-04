@@ -1,7 +1,7 @@
 # NIDSense
 ```
 +------------------------+            +-----------------------------+             +----------------------------------------+
-|   🛡️ Serveur Rocky     |            |   🔎 Machine Ubuntu        |             |      🤖 IA Windows                     |
+|   🛡️ Serveur Rocky     |            |   🔎 Machine Ubuntu        |             |      🤖 Windows                        |
 |      (Cible)           |            | (Traitement des données)    |             |    (Mistral + Ollama)                  |
 +------------------------+            +-----------------------------+             +----------------------------------------+
 | Services exposés :     |            | Services :                  |             | Services :                             |
