@@ -1,4 +1,15 @@
 # NIDSense
+
+## Description du projet
+
+**NIDSense** est un système intelligent de détection d'intrusion (IDS) en temps réel, conçu pour identifier automatiquement les attaques ou comportements suspects sur un serveur vulnérable.
+Il s'appuie sur la collecte de logs système, réseau, base de données et applicatifs web, qui sont transformés et analysés par une intelligence artificielle (Mistral via Ollama) hébergée localement.
+L'architecture distribue les rôles sur trois machines distinctes, interconnectées via un VPN sécurisé (Tailscale) pour garantir confidentialité et résilience.
+
+---
+
+## Structure du projet
+
 ```
 +------------------------+            +-----------------------------+             +----------------------------------------+
 |   🛡️ Serveur Rocky     |            |   🔎 Machine Ubuntu        |             |      🤖 Windows                        |
