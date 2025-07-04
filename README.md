@@ -12,7 +12,7 @@
 |                        |            | Flux entrant :              |             |                                        |
 | Génère logs :          | -------->  |  - apache-access.log        |             |                                        |
 |  - Apache logs         |  Rsyslog   |  - mariadb.log              |             |                                        |
-|  - MariaDB logs        |  (UDP)     |  - auditd.log               |             |                                        |
+|  - MariaDB logs        |   (UDP)    |  - auditd.log               |             |                                        |
 |  - AuditD logs         |            |  - zeek logs                |             |                                        |
 |                        |            |                             |             |                                        |
 |                        |            | Script (parsing des logs et |             |                                        |
