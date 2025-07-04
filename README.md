@@ -13,7 +13,8 @@
 | Génère logs :          | -------->  |  - apache-access.log        |             |                                        |
 |  - Apache logs         |  Rsyslog   |  - mariadb.log              |             |                                        |
 |  - MariaDB logs        |   (UDP)    |  - auditd.log               |             |                                        |
-|  - AuditD logs         |            |  - zeek logs                |             |                                        |
+|  - AuditD logs         |            |        +                    |             |                                        |
+|                        |            |  - zeek.log                 |             |                                        |
 |                        |            |                             |             |                                        |
 |                        |            | Script (parsing des logs et |             |                                        |
 |                        |            | communication avec l'IA ):  |   PROMPT    | Analyse IA (à partir du prompt reçu) : |
