@@ -27,5 +27,5 @@
 
 
                                                    VPN Mesh sécurisé (Tailscale)
-                                                   🔒 Chiffrement point-à-point
+                                                    🔒 Chiffrement point-à-point
 
