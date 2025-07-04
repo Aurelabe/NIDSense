@@ -22,7 +22,9 @@
 |                        |            |                             |   REPONSE   |   - Détecte attaques                   |
 |                        |            |                             |  <--------- |   - Génère alertes                     |
 +------------------------+            +-----------------------------+             +----------------------------------------+
-```
+
 
                                                 VPN Mesh sécurisé (Tailscale)
                                                 🔒 Chiffrement point-à-point
+
+```
