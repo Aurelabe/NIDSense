@@ -24,13 +24,20 @@ def tail_f(filepath):
             
 # Parse an Apache access log line
 def parse_apache_access(line):
-    m = re.search(r'\[([0-9]{2}/[A-Za-z]{3}/[0-9]{4}:[0-9]{2}:[0-9]{2}:[0-9]{2} [+\-0-9]+)\] "(\S+) (\S+) \S+" (\d{3}) (\d+|-) "([^"]*)" "([^"]*)"', line)
+    ip_match = re.search(r'\[VULN_SITE\]\s+(\d+\.\d+\.\d+\.\d+)', line)
+    if not ip_match:
+        return None
+    ip = ip_match.group(1)
+
+    m = re.search(r'\[([0-9]{2}/[A-Za-z]{3}/[0-9]{4}:[0-9]{2}:[0-9]{2}:[0-9]{2} [+\-0-9]+)\] '
+                  r'"(\S+) (\S+) \S+" (\d{3}) (\d+|-) "([^"]*)" "([^"]*)"', line)
     if not m:
         return None
     timestamp, method, path, status, size, referrer, user_agent = m.groups()
+
     return {
         "log_type": "apache-access",
-        "ip": line.split()[-10],
+        "ip": ip,
         "timestamp": timestamp,
         "method": method,
         "path": path,
@@ -39,7 +46,7 @@ def parse_apache_access(line):
         "referrer": referrer,
         "user_agent": user_agent
     }
-
+    
 # Parse a MariaDB log line
 def parse_mariadb(line):
     try:
