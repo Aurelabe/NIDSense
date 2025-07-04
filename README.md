@@ -37,6 +37,6 @@ L'architecture distribue les rôles sur trois machines distinctes, interconnect�
 ```
 
 ```
-                                               VPN Mesh sécurisé (Tailscale)
-                                               🔒 Chiffrement point-à-point
+                                                 VPN Mesh sécurisé (Tailscale)
+                                                 🔒 Chiffrement point-à-point
 ```
