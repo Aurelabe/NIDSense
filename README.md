@@ -17,7 +17,7 @@
 |                        |            |                             |             |                                        |
 |                        |            | Script (parsing des logs et |             |                                        |
 |                        |            | communication avec l'IA ):  |   PROMPT    | Analyse IA (à partir du prompt reçu) : |
-|                        |            |   - parser_and_twia.py     |  -------->  |   - Réception des logs parsés          |
+|                        |            |  - parser_and_twia.py     |  -------->  |   - Réception des logs parsés          |
 |                        |            |                             |             |   - Vérifie comportement               |
 |                        |            |                             |   REPONSE   |   - Détecte attaques                   |
 |                        |            |                             |  <--------- |   - Génère alertes                     |
