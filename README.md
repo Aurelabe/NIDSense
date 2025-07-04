@@ -2,7 +2,7 @@
 ```
 +------------------------+            +-----------------------------+             +----------------------------------------+
 |   🛡️ Serveur Rocky     |            |   🔎 Machine Ubuntu        |             |      🤖 IA Windows                     |
-|      (Vulnérable)      |            | (Traitement des données)    |             |    (Mistral + Ollama)                  |
+|      (Cible)           |            | (Traitement des données)    |             |    (Mistral + Ollama)                  |
 +------------------------+            +-----------------------------+             +----------------------------------------+
 | Services exposés :     |            | Services :                  |             | Services :                             |
 |  - Apache (port 80)    |            |  - rsyslog (UDP 514)        |             |  - Ollama (Mistral)                    |
